@@ -36,5 +36,5 @@ app.post("/api/orders", (req, res) => {
   orders.push(order); writeJson(PRODUCTS_FILE, products); writeJson(ORDERS_FILE, orders); res.status(201).json(order);
 });
 app.get("/api/orders", (req, res) => res.json(readJson(ORDERS_FILE)));
-app.get("*", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
+app.get("/{*splat}", (req, res) => res.sendFile(path.join(__dirname, "public", "index.html")));
 app.listen(PORT, () => console.log(`Glassmorph E-commerce running at http://localhost:${PORT}`));
